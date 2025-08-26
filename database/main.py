@@ -1,6 +1,7 @@
 import create_db
 import newuser
 import login
+import set_2fa
 
 class dbmanager():
     def __init__(self,db_url):
@@ -27,3 +28,10 @@ class dbmanager():
                return user
            create_db.close_session(self.session)
            return [True,'user found',user[1]]
+
+    def enable_2fa(self,email):
+        if self.session is None:
+            return [False, 'failed to create session']
+        res = set_2fa.enable(email,self.session)
+        create_db.close_session(self.session)
+        return res
