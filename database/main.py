@@ -35,3 +35,10 @@ class dbmanager():
         res = set_2fa.enable(email,self.session)
         create_db.close_session(self.session)
         return res
+    
+    def change_password(self,email,password):
+        if self.session is None:
+            return [False, 'failed to create session']
+        res = password.change_password(email,password,self.session)
+        create_db.close_session(self.session)
+        return res
