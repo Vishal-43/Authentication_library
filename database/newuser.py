@@ -9,5 +9,8 @@ class new_user():
         session.commit()
         return [True,'user created successfully']
 
+    def update_email_type(self,email):
+        pass
+
     
 

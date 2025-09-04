@@ -8,6 +8,7 @@ class users(Base):
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True,unique=True, autoincrement=True)
     email = sqlalchemy.Column(sqlalchemy.String, unique = True)
     password = sqlalchemy.Column(sqlalchemy.String)
+    email_type = sqlalchemy.Column(sqlalchemy.String, defualt = 'unverfied')
     FA = sqlalchemy.Column(sqlalchemy.Boolean, default=False)
 
 
