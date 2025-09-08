@@ -9,8 +9,13 @@ class new_user():
         session.commit()
         return [True,'user created successfully']
 
-    def update_email_type(self,email):
-        pass
+    def update_email_type(self,email,session):
+        user = session.query(create_db.users).filter_by(email=email).first()
+        if user is None:
+            return [False,'user not found']
+        user.email_type = 'verified'
+        session.commit()
+        return [True,'email verified']
 
     
 

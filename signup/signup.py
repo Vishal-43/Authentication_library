@@ -36,5 +36,6 @@ class signup_manager:
                 return [True,'otp verified']
             else:
                 return [False,'invalid OTP']
-        
 
+    def update_email_type(self,email,session):
+        return db.newuser().update_email_type(email,session)
